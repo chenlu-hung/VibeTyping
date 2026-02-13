@@ -1,0 +1,391 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		56E3E1C3555665F0B8C43119 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6037D556ACAB104DACA8C7 /* AppDelegate.swift */; };
+		D8DD42CAC54DBD60C8C0F43D /* NSManualApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C9527F8A258D4ACF277C2E /* NSManualApplication.swift */; };
+		71A12B7030296B9E40C05E15 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B38966CB7B3A2131FED731 /* main.swift */; };
+		3D628D1936B1C7A40F699BEE /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD617E14AA4174B4FB56E316 /* AudioRecorder.swift */; };
+		56FD8AF072D07013C7F59A34 /* SilenceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAD03DAC736A91071B47E66 /* SilenceDetector.swift */; };
+		1572CC5AE136AB592E242C09 /* InputMethodConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D32944C1328ECF0A432E390 /* InputMethodConstants.swift */; };
+		5D1D51DFC238778602CC3B4B /* VibeTypingInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EDE12FD016D17D50725AA /* VibeTypingInputController.swift */; };
+		3FB6254D9D9EBF3CBB793E36 /* CorrectionPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F1B6A7C93E554AEE65A675 /* CorrectionPrompt.swift */; };
+		47B6889C4B8D6EE2BB05698F /* LLMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872F8C07F3F280509EF5DC91 /* LLMClient.swift */; };
+		39A0E206BDC8C0C88DCBF4B9 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0A3BBDC5A1F8C7898C2DEB /* AppSettings.swift */; };
+		6F84ACDB9E6F22B3B3A8A753 /* WhisperKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDAED0578D2AC800D25E45 /* WhisperKitManager.swift */; };
+		E36B67CC9F49312652AFEF31 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2027A563B26BB67AFA724D3A /* SettingsView.swift */; };
+		E50BA0617E1C37B508892E60 /* StatusOverlayPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEBC59AFB0BE5959425C70B /* StatusOverlayPanel.swift */; };
+		ABE9005842158A4168C6FB80 /* InputMethodKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C302723BC0ACA304FAA92CD3 /* InputMethodKit.framework */; };
+		1378D9CB4E0D5AACE0EDB1C8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FAB064887D6FE6D9A964F8 /* AVFoundation.framework */; };
+		98E69E002C3EFB00F5F0A4D9 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F2130926B4F61FBAC82A3B /* Carbon.framework */; };
+		9C6F93A3B017F9A14D6D6215 /* WhisperKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6E78C6D8BDC2C8FB1330349E /* WhisperKit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5D6037D556ACAB104DACA8C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate.swift"; sourceTree = "<group>"; };
+		A1C9527F8A258D4ACF277C2E /* NSManualApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManualApplication.swift"; sourceTree = "<group>"; };
+		29B38966CB7B3A2131FED731 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "main.swift"; sourceTree = "<group>"; };
+		DD617E14AA4174B4FB56E316 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AudioRecorder.swift"; sourceTree = "<group>"; };
+		1DAD03DAC736A91071B47E66 /* SilenceDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SilenceDetector.swift"; sourceTree = "<group>"; };
+		0D32944C1328ECF0A432E390 /* InputMethodConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputMethodConstants.swift"; sourceTree = "<group>"; };
+		032EDE12FD016D17D50725AA /* VibeTypingInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VibeTypingInputController.swift"; sourceTree = "<group>"; };
+		43F1B6A7C93E554AEE65A675 /* CorrectionPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorrectionPrompt.swift"; sourceTree = "<group>"; };
+		872F8C07F3F280509EF5DC91 /* LLMClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LLMClient.swift"; sourceTree = "<group>"; };
+		5C0A3BBDC5A1F8C7898C2DEB /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettings.swift"; sourceTree = "<group>"; };
+		E7BDAED0578D2AC800D25E45 /* WhisperKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhisperKitManager.swift"; sourceTree = "<group>"; };
+		2027A563B26BB67AFA724D3A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView.swift"; sourceTree = "<group>"; };
+		2BEBC59AFB0BE5959425C70B /* StatusOverlayPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StatusOverlayPanel.swift"; sourceTree = "<group>"; };
+		E66577E47B64983EF2FA97F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info.plist"; sourceTree = "<group>"; };
+		C60ED072ADFAD919205D75DC /* VibeTyping.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VibeTyping.entitlements"; sourceTree = "<group>"; };
+		5DCA9DBC59D59FCE52BB4E78 /* VibeTyping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VibeTyping.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C302723BC0ACA304FAA92CD3 /* InputMethodKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InputMethodKit.framework; path = System/Library/Frameworks/InputMethodKit.framework; sourceTree = SDKROOT; };
+		A9FAB064887D6FE6D9A964F8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		83F2130926B4F61FBAC82A3B /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A7357BC1186820D9374272A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABE9005842158A4168C6FB80 /* InputMethodKit.framework in Frameworks */,
+				1378D9CB4E0D5AACE0EDB1C8 /* AVFoundation.framework in Frameworks */,
+				98E69E002C3EFB00F5F0A4D9 /* Carbon.framework in Frameworks */,
+				9C6F93A3B017F9A14D6D6215 /* WhisperKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		897132692E584BE6BA93A5F2 = {
+			isa = PBXGroup;
+			children = (
+				8FBC785E50D1784C663CCF5C /* VibeTyping */,
+				F84CC0AA6FCB742C4FD35467 /* Frameworks */,
+				000618FA5A642FE79E96B63B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		000618FA5A642FE79E96B63B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5DCA9DBC59D59FCE52BB4E78 /* VibeTyping.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F84CC0AA6FCB742C4FD35467 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C302723BC0ACA304FAA92CD3 /* InputMethodKit.framework */,
+				A9FAB064887D6FE6D9A964F8 /* AVFoundation.framework */,
+				83F2130926B4F61FBAC82A3B /* Carbon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8FBC785E50D1784C663CCF5C /* VibeTyping */ = {
+			isa = PBXGroup;
+			children = (
+				7C50A65CA59CD73A0953DCB5 /* App */,
+				457A8F19053BB3021A0EFB28 /* InputMethod */,
+				AFB01B1565FF4938209064A4 /* Audio */,
+				D7321FE6A23BD2EE57EEC1B7 /* Transcription */,
+				49A0DE4A2ACA98CE899415A4 /* LLM */,
+				46BF465DE69914B0E0DAD8FC /* UI */,
+				F04496CE5990106152256DCC /* Settings */,
+				5879F0B68CACFCC6A08C4C59 /* Resources */,
+			);
+			path = VibeTyping;
+			sourceTree = "<group>";
+		};
+		7C50A65CA59CD73A0953DCB5 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5D6037D556ACAB104DACA8C7 /* AppDelegate.swift */,
+				A1C9527F8A258D4ACF277C2E /* NSManualApplication.swift */,
+				29B38966CB7B3A2131FED731 /* main.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		457A8F19053BB3021A0EFB28 /* InputMethod */ = {
+			isa = PBXGroup;
+			children = (
+				0D32944C1328ECF0A432E390 /* InputMethodConstants.swift */,
+				032EDE12FD016D17D50725AA /* VibeTypingInputController.swift */,
+			);
+			path = InputMethod;
+			sourceTree = "<group>";
+		};
+		AFB01B1565FF4938209064A4 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				DD617E14AA4174B4FB56E316 /* AudioRecorder.swift */,
+				1DAD03DAC736A91071B47E66 /* SilenceDetector.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		D7321FE6A23BD2EE57EEC1B7 /* Transcription */ = {
+			isa = PBXGroup;
+			children = (
+				E7BDAED0578D2AC800D25E45 /* WhisperKitManager.swift */,
+			);
+			path = Transcription;
+			sourceTree = "<group>";
+		};
+		49A0DE4A2ACA98CE899415A4 /* LLM */ = {
+			isa = PBXGroup;
+			children = (
+				43F1B6A7C93E554AEE65A675 /* CorrectionPrompt.swift */,
+				872F8C07F3F280509EF5DC91 /* LLMClient.swift */,
+			);
+			path = LLM;
+			sourceTree = "<group>";
+		};
+		46BF465DE69914B0E0DAD8FC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2027A563B26BB67AFA724D3A /* SettingsView.swift */,
+				2BEBC59AFB0BE5959425C70B /* StatusOverlayPanel.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		F04496CE5990106152256DCC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5C0A3BBDC5A1F8C7898C2DEB /* AppSettings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		5879F0B68CACFCC6A08C4C59 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E66577E47B64983EF2FA97F4 /* Info.plist */,
+				C60ED072ADFAD919205D75DC /* VibeTyping.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA876D57BDEE5F738125604A /* VibeTyping */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FE2BF8D40E3D0AA5B76E1EA /* Build configuration list for PBXNativeTarget "VibeTyping" */;
+			buildPhases = (
+				5E3E91C3F6FC6E6692E5C1EE /* Sources */,
+				3A7357BC1186820D9374272A /* Frameworks */,
+				1DA2BC3611D5DBC6EA95D624 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VibeTyping;
+			packageProductDependencies = (
+				6E78C6D8BDC2C8FB1330349E /* WhisperKit */,
+			);
+			productName = VibeTyping;
+			productReference = 5DCA9DBC59D59FCE52BB4E78 /* VibeTyping.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		10935188F96B4D72375B07D2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+			};
+			buildConfigurationList = C4F4CFB72057D4777956C911 /* Build configuration list for PBXProject "VibeTyping" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = "zh-Hant";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				"zh-Hant",
+				en,
+				Base,
+			);
+			mainGroup = 897132692E584BE6BA93A5F2;
+			packageReferences = (
+				BCD8D0985E7F695F40E9AF41 /* XCRemoteSwiftPackageReference "WhisperKit" */,
+			);
+			productRefGroup = 000618FA5A642FE79E96B63B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA876D57BDEE5F738125604A /* VibeTyping */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1DA2BC3611D5DBC6EA95D624 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5E3E91C3F6FC6E6692E5C1EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56E3E1C3555665F0B8C43119 /* AppDelegate.swift in Sources */,
+				D8DD42CAC54DBD60C8C0F43D /* NSManualApplication.swift in Sources */,
+				71A12B7030296B9E40C05E15 /* main.swift in Sources */,
+				3D628D1936B1C7A40F699BEE /* AudioRecorder.swift in Sources */,
+				56FD8AF072D07013C7F59A34 /* SilenceDetector.swift in Sources */,
+				1572CC5AE136AB592E242C09 /* InputMethodConstants.swift in Sources */,
+				5D1D51DFC238778602CC3B4B /* VibeTypingInputController.swift in Sources */,
+				3FB6254D9D9EBF3CBB793E36 /* CorrectionPrompt.swift in Sources */,
+				47B6889C4B8D6EE2BB05698F /* LLMClient.swift in Sources */,
+				39A0E206BDC8C0C88DCBF4B9 /* AppSettings.swift in Sources */,
+				6F84ACDB9E6F22B3B3A8A753 /* WhisperKitManager.swift in Sources */,
+				E36B67CC9F49312652AFEF31 /* SettingsView.swift in Sources */,
+				E50BA0617E1C37B508892E60 /* StatusOverlayPanel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D5ED4343DE75BD1212F217AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		980FFC8400703948CCF21396 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		F7E54A85A32DE83FFF4ACAFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = VibeTyping/Resources/VibeTyping.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = VibeTyping/Resources/Info.plist;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vibetyping.inputmethod.VibeTyping;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		31EDE2ECAAE82F47CD2268EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = VibeTyping/Resources/VibeTyping.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = VibeTyping/Resources/Info.plist;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vibetyping.inputmethod.VibeTyping;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C4F4CFB72057D4777956C911 /* Build configuration list for PBXProject "VibeTyping" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5ED4343DE75BD1212F217AD /* Debug */,
+				980FFC8400703948CCF21396 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FE2BF8D40E3D0AA5B76E1EA /* Build configuration list for PBXNativeTarget "VibeTyping" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7E54A85A32DE83FFF4ACAFB /* Debug */,
+				31EDE2ECAAE82F47CD2268EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BCD8D0985E7F695F40E9AF41 /* XCRemoteSwiftPackageReference "WhisperKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/argmaxinc/WhisperKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6E78C6D8BDC2C8FB1330349E /* WhisperKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCD8D0985E7F695F40E9AF41 /* XCRemoteSwiftPackageReference "WhisperKit" */;
+			productName = WhisperKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+	};
+	rootObject = 10935188F96B4D72375B07D2 /* Project object */;
+}

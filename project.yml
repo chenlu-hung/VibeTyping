@@ -1,0 +1,50 @@
+name: VibeTyping
+options:
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "15.0"
+  bundleIdPrefix: com.vibetyping
+
+packages:
+  WhisperKit:
+    url: https://github.com/argmaxinc/WhisperKit.git
+    from: "0.9.0"
+
+targets:
+  VibeTyping:
+    type: application
+    platform: macOS
+    sources:
+      - path: VibeTyping
+        excludes:
+          - "Resources/Info.plist"
+    info:
+      path: VibeTyping/Resources/Info.plist
+      properties:
+        NSPrincipalClass: $(PRODUCT_MODULE_NAME).NSManualApplication
+        InputMethodConnectionName: $(PRODUCT_BUNDLE_IDENTIFIER)_Connection
+        InputMethodServerControllerClass: $(PRODUCT_MODULE_NAME).VibeTypingInputController
+        LSBackgroundOnly: true
+        tsInputMethodCharacterRepertoireKey:
+          - Hant
+          - Hans
+          - Latn
+        tsInputMethodIconFileKey: main.tiff
+        NSMicrophoneUsageDescription: "VibeTyping 需要麥克風權限來進行語音輸入。"
+        LSMinimumSystemVersion: "14.0"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.vibetyping.inputmethod.VibeTyping
+        PRODUCT_NAME: VibeTyping
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+        CODE_SIGN_ENTITLEMENTS: VibeTyping/Resources/VibeTyping.entitlements
+        INFOPLIST_FILE: VibeTyping/Resources/Info.plist
+    dependencies:
+      - package: WhisperKit
+    entitlements:
+      path: VibeTyping/Resources/VibeTyping.entitlements
+      properties:
+        com.apple.security.app-sandbox: false
+        com.apple.security.device.audio-input: true
+        com.apple.security.network.client: true
