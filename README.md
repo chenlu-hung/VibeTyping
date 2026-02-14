@@ -55,8 +55,10 @@ cp -R ~/Library/Developer/Xcode/DerivedData/VibeTyping-*/Build/Products/Release/
 
 | 操作 | 說明 |
 |------|------|
-| `Ctrl + /` | 開始錄音（再按一次手動停止） |
+| `Ctrl + /`（預設，可自訂） | 開始錄音（再按一次手動停止） |
 | 說完話後靜默 1.5 秒 | 自動停止錄音並開始辨識 |
+
+快捷鍵可在設定視窗中自訂，支援任何包含修飾鍵（Ctrl/Cmd/Option）的組合。
 
 辨識流程：
 
@@ -74,6 +76,7 @@ cp -R ~/Library/Developer/Xcode/DerivedData/VibeTyping-*/Build/Products/Release/
 |--------|--------|------|
 | 靜音偵測秒數 | 1.5 秒 | 說話停頓多久後自動停止錄音 |
 | 自訂模型資料夾 | （空） | 留空則自動下載到 `~/Library/Application Support/VibeTyping/HubCache/` |
+| 錄音快捷鍵 | `⌃/` (Ctrl+/) | 點擊按鈕後按下新的組合鍵即可變更 |
 
 ### LLM 校正
 
