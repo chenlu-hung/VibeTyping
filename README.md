@@ -9,6 +9,7 @@ macOS 語音輸入法，使用 [WhisperKit](https://github.com/argmaxinc/Whisper
 - **LLM 校正** — 支援任意 OpenAI 相容 API 端點，修正同音錯字、補標點
 - **自動停止** — 透過靜音偵測（VAD）自動判斷說話結束
 - **原生整合** — 基於 InputMethodKit，作為系統輸入法運作於所有應用程式
+- **自動下載模型** — 首次啟動時自動從 HuggingFace 下載模型，附進度條顯示
 
 ## 系統需求
 
@@ -54,7 +55,7 @@ cp -R ~/Library/Developer/Xcode/DerivedData/VibeTyping-*/Build/Products/Release/
 
 | 操作 | 說明 |
 |------|------|
-| `Ctrl + `` ` | 開始錄音（再按一次手動停止） |
+| `Ctrl + /` | 開始錄音（再按一次手動停止） |
 | 說完話後靜默 1.5 秒 | 自動停止錄音並開始辨識 |
 
 辨識流程：
@@ -72,7 +73,7 @@ cp -R ~/Library/Developer/Xcode/DerivedData/VibeTyping-*/Build/Products/Release/
 | 設定項 | 預設值 | 說明 |
 |--------|--------|------|
 | 靜音偵測秒數 | 1.5 秒 | 說話停頓多久後自動停止錄音 |
-| 自訂模型資料夾 | （空） | 留空則自動下載到 `~/Library/Application Support/VibeTyping/Models/` |
+| 自訂模型資料夾 | （空） | 留空則自動下載到 `~/Library/Application Support/VibeTyping/HubCache/` |
 
 ### LLM 校正
 

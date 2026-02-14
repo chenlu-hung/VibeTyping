@@ -51,7 +51,7 @@ struct SettingsView: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("快捷鍵")
                         .font(.headline)
-                    Text("Ctrl + ` (反引號) 開始/停止錄音")
+                    Text("Ctrl + / 開始/停止錄音")
                         .foregroundColor(.secondary)
                     Text("說完話後會自動停止錄音")
                         .font(.caption)
@@ -97,12 +97,23 @@ struct SettingsView: View {
     }
 }
 
+// MARK: - KeyableWindow
+
+/// Custom NSWindow subclass that can always become key window.
+/// Required because InputMethodKit apps run as LSBackgroundOnly,
+/// and the default NSWindow refuses keyboard focus in that mode.
+private class KeyableWindow: NSWindow {
+    override var canBecomeKey: Bool { true }
+    override var canBecomeMain: Bool { true }
+}
+
 // MARK: - Settings Window Manager
 
-class SettingsWindowManager {
+class SettingsWindowManager: NSObject, NSWindowDelegate {
     static let shared = SettingsWindowManager()
 
     private var settingsWindow: NSWindow?
+    private var previousActivationPolicy: NSApplication.ActivationPolicy = .accessory
 
     func showSettingsWindow() {
         if let window = settingsWindow, window.isVisible {
@@ -111,14 +122,28 @@ class SettingsWindowManager {
             return
         }
 
+        // Save current activation policy and switch to .regular
+        // so the app can receive keyboard focus for text fields
+        previousActivationPolicy = NSApp.activationPolicy()
+        NSApp.setActivationPolicy(.regular)
+
         let hostingController = NSHostingController(rootView: SettingsView())
-        let window = NSWindow(contentViewController: hostingController)
+        let window = KeyableWindow(contentViewController: hostingController)
         window.title = "VibeTyping 設定"
         window.styleMask = [.titled, .closable]
+        window.delegate = self
         window.center()
         window.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
 
         settingsWindow = window
+    }
+
+    // MARK: - NSWindowDelegate
+
+    func windowWillClose(_ notification: Notification) {
+        // Restore the previous activation policy when settings window closes
+        NSApp.setActivationPolicy(previousActivationPolicy)
+        settingsWindow = nil
     }
 }

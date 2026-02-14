@@ -14,11 +14,6 @@ class VibeTypingInputController: IMKInputController {
     override func activateServer(_ sender: Any!) {
         super.activateServer(sender)
         NSLog("VibeTyping: Server activated")
-
-        // Preload WhisperKit model in background
-        Task {
-            try? await WhisperKitManager.shared.loadModel()
-        }
     }
 
     override func deactivateServer(_ sender: Any!) {

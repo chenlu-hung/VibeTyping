@@ -20,6 +20,7 @@
 		6F84ACDB9E6F22B3B3A8A753 /* WhisperKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDAED0578D2AC800D25E45 /* WhisperKitManager.swift */; };
 		E36B67CC9F49312652AFEF31 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2027A563B26BB67AFA724D3A /* SettingsView.swift */; };
 		E50BA0617E1C37B508892E60 /* StatusOverlayPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEBC59AFB0BE5959425C70B /* StatusOverlayPanel.swift */; };
+		A1B2C3D4E5F60718293A4B5C /* ModelDownloadPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E5F6071829A1B2C3A4B5C6 /* ModelDownloadPanel.swift */; };
 		ABE9005842158A4168C6FB80 /* InputMethodKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C302723BC0ACA304FAA92CD3 /* InputMethodKit.framework */; };
 		1378D9CB4E0D5AACE0EDB1C8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FAB064887D6FE6D9A964F8 /* AVFoundation.framework */; };
 		98E69E002C3EFB00F5F0A4D9 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F2130926B4F61FBAC82A3B /* Carbon.framework */; };
@@ -40,6 +41,7 @@
 		E7BDAED0578D2AC800D25E45 /* WhisperKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhisperKitManager.swift"; sourceTree = "<group>"; };
 		2027A563B26BB67AFA724D3A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView.swift"; sourceTree = "<group>"; };
 		2BEBC59AFB0BE5959425C70B /* StatusOverlayPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StatusOverlayPanel.swift"; sourceTree = "<group>"; };
+		D4E5F6071829A1B2C3A4B5C6 /* ModelDownloadPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelDownloadPanel.swift"; sourceTree = "<group>"; };
 		E66577E47B64983EF2FA97F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info.plist"; sourceTree = "<group>"; };
 		C60ED072ADFAD919205D75DC /* VibeTyping.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VibeTyping.entitlements"; sourceTree = "<group>"; };
 		5DCA9DBC59D59FCE52BB4E78 /* VibeTyping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VibeTyping.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +157,7 @@
 			children = (
 				2027A563B26BB67AFA724D3A /* SettingsView.swift */,
 				2BEBC59AFB0BE5959425C70B /* StatusOverlayPanel.swift */,
+				D4E5F6071829A1B2C3A4B5C6 /* ModelDownloadPanel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				6F84ACDB9E6F22B3B3A8A753 /* WhisperKitManager.swift in Sources */,
 				E36B67CC9F49312652AFEF31 /* SettingsView.swift in Sources */,
 				E50BA0617E1C37B508892E60 /* StatusOverlayPanel.swift in Sources */,
+				A1B2C3D4E5F60718293A4B5C /* ModelDownloadPanel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = NO;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = VibeTyping/Resources/Info.plist;
 				MARKETING_VERSION = 1.0;
@@ -334,6 +339,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = NO;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = VibeTyping/Resources/Info.plist;
 				MARKETING_VERSION = 1.0;
