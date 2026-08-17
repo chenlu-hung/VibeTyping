@@ -1,3 +1,5 @@
+
+
 # VibeTyping
 
 macOS 語音輸入法，使用 [WhisperKit](https://github.com/argmaxinc/WhisperKit) 搭配 [Breeze-ASR-25](https://github.com/mtkresearch/Breeze-ASR-25) CoreML 模型在本地端進行台灣中文語音辨識，並可選擇透過雲端 LLM 進一步校正同音錯字與標點符號。
@@ -75,7 +77,7 @@ cp -R ~/Library/Developer/Xcode/DerivedData/VibeTyping-*/Build/Products/Release/
 | 設定項 | 預設值 | 說明 |
 |--------|--------|------|
 | 靜音偵測秒數 | 1.5 秒 | 說話停頓多久後自動停止錄音 |
-| 自訂模型資料夾 | （空） | 留空則自動下載到 `~/Library/Application Support/VibeTyping/HubCache/` |
+| 自訂模型資料夾 | （空） | 留空則自動下載到 `~/Library/Application Support/VibeTyping/HubCache/`；填寫時需指向包含 `AudioEncoder.mlmodelc` 的模型資料夾 |
 | 錄音快捷鍵 | `⌃/` (Ctrl+/) | 點擊按鈕後按下新的組合鍵即可變更 |
 
 ### LLM 校正
