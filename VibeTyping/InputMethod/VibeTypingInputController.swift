@@ -100,18 +100,27 @@ class VibeTypingInputController: IMKInputController {
                 return
             }
 
-            // Step 2: LLM correction (if enabled)
+            // Step 2: Punctuation restoration (Breeze-ASR-25 emits none of its own)
+            let punctuatedText: String
+            if AppSettings.shared.isPunctuationEnabled {
+                punctuatedText = await PunctuationManager.shared.addPunctuation(to: rawText)
+                NSLog("VibeTyping: Punctuated text: \(punctuatedText)")
+            } else {
+                punctuatedText = rawText
+            }
+
+            // Step 3: LLM correction (if enabled)
             let finalText: String
             if AppSettings.shared.isLLMCorrectionEnabled,
                !AppSettings.shared.llmApiKey.isEmpty {
                 await MainActor.run { self.showStatusPanel(state: .correcting) }
-                finalText = await LLMClient.shared.correctTranscription(rawText)
+                finalText = await LLMClient.shared.correctTranscription(punctuatedText)
                 NSLog("VibeTyping: Corrected text: \(finalText)")
             } else {
-                finalText = rawText
+                finalText = punctuatedText
             }
 
-            // Step 3: Commit text to active application
+            // Step 4: Commit text to active application
             await MainActor.run {
                 self.commitText(finalText)
                 self.hideStatusPanel()

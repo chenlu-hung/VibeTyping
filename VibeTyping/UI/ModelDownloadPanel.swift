@@ -3,6 +3,7 @@ import Cocoa
 /// A floating panel that shows model download progress.
 /// Displayed as a centered window with progress bar and status text.
 class ModelDownloadPanel: NSPanel {
+    private let titleLabel = NSTextField(labelWithString: "正在下載語音辨識模型...")
     private let statusLabel = NSTextField(labelWithString: "")
     private let progressBar = NSProgressIndicator()
     private let percentLabel = NSTextField(labelWithString: "0%")
@@ -34,7 +35,6 @@ class ModelDownloadPanel: NSPanel {
         guard let contentView = self.contentView else { return }
 
         // Title label
-        let titleLabel = NSTextField(labelWithString: "正在下載語音辨識模型...")
         titleLabel.font = NSFont.systemFont(ofSize: 14, weight: .semibold)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(titleLabel)
@@ -82,6 +82,19 @@ class ModelDownloadPanel: NSPanel {
         ])
     }
 
+    /// Switch the panel to a new download stage, resetting the bar. Main thread only.
+    func setStage(title: String, detail: String) {
+        titleLabel.stringValue = title
+        statusLabel.stringValue = detail
+        statusLabel.textColor = .secondaryLabelColor
+        progressBar.stopAnimation(nil)
+        progressBar.isIndeterminate = false
+        progressBar.doubleValue = 0
+        progressBar.isHidden = false
+        percentLabel.isHidden = false
+        percentLabel.stringValue = "0%"
+    }
+
     /// Update progress (0.0 ~ 1.0). Must be called on main thread.
     func updateProgress(_ fraction: Double) {
         progressBar.doubleValue = fraction
@@ -111,5 +124,57 @@ class ModelDownloadPanel: NSPanel {
     func dismiss() {
         progressBar.stopAnimation(nil)
         orderOut(nil)
+    }
+}
+
+/// Main-thread-confined handle to the download panel.
+///
+/// The model managers report progress through plain `(Double) -> Void` closures that are
+/// invoked from actor context, so whatever they capture has to be `Sendable`. Being
+/// `@MainActor`-isolated makes this type exactly that, and it keeps every panel mutation
+/// on the main thread without the callers having to hop by hand.
+@MainActor
+final class DownloadPanelController {
+    private var panel: ModelDownloadPanel?
+
+    /// Nonisolated so it can be held as a stored property of the app delegate, which is
+    /// itself constructed off the main actor. Nothing is touched until `present()`.
+    nonisolated init() {}
+
+    /// Bring up the panel. Does nothing if one is already on screen.
+    func present() {
+        guard panel == nil else { return }
+        let panel = ModelDownloadPanel()
+        panel.orderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
+        self.panel = panel
+        NSLog("VibeTyping: Showing download panel")
+    }
+
+    func setStage(title: String, detail: String) {
+        panel?.setStage(title: title, detail: detail)
+    }
+
+    func updateProgress(_ fraction: Double) {
+        panel?.updateProgress(fraction)
+    }
+
+    func showLoadingModel() {
+        panel?.showLoadingModel()
+    }
+
+    /// Show an error and take the panel down after the user has had a chance to read it.
+    func showError(_ message: String, dismissingAfter delay: TimeInterval = 3) {
+        guard let panel = panel else { return }
+        panel.showError(message)
+        self.panel = nil
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            panel.dismiss()
+        }
+    }
+
+    func dismiss() {
+        panel?.dismiss()
+        panel = nil
     }
 }

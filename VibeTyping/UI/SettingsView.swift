@@ -8,12 +8,19 @@ struct SettingsView: View {
     @AppStorage("isLLMCorrectionEnabled") private var isLLMCorrectionEnabled: Bool = true
     @AppStorage("silenceDuration") private var silenceDuration: Double = 1.5
     @AppStorage("customModelFolder") private var customModelFolder: String = ""
+    @AppStorage("isPunctuationEnabled") private var isPunctuationEnabled: Bool = true
+    @AppStorage("customPunctuationModel") private var customPunctuationModel: String = ""
 
     var body: some View {
         TabView {
             asrSettingsTab
                 .tabItem {
                     Label("語音辨識", systemImage: "waveform")
+                }
+
+            punctuationSettingsTab
+                .tabItem {
+                    Label("標點還原", systemImage: "textformat")
                 }
 
             llmSettingsTab
@@ -58,6 +65,35 @@ struct SettingsView: View {
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
+        }
+    }
+
+    // MARK: - Punctuation Settings Tab
+
+    private var punctuationSettingsTab: some View {
+        Form {
+            Section {
+                Toggle("啟用標點還原", isOn: $isPunctuationEnabled)
+                Text("Breeze-ASR-25 的輸出不含標點符號。開啟後會用 FunASR 的 CT-Transformer 模型在本機補上，單句約 5 毫秒，不需連網。")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+
+            Section {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("自訂模型檔案")
+                    TextField("留空使用預設路徑", text: $customPunctuationModel)
+                        .textFieldStyle(.roundedBorder)
+                    Text("預設路徑: ~/Library/Application Support/VibeTyping/Punctuation/model.int8.onnx")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Text("首次啟用時會自動下載（約 65 MB）；下載不便時可自行取得 sherpa-onnx 的 punct-ct-transformer 模型後指定路徑。")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+            }
+            .disabled(!isPunctuationEnabled)
+            .opacity(isPunctuationEnabled ? 1.0 : 0.5)
         }
     }
 

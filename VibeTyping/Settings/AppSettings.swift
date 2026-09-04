@@ -33,6 +33,26 @@ class AppSettings {
         set { defaults.set(newValue, forKey: "isLLMCorrectionEnabled") }
     }
 
+    // MARK: - Punctuation Settings
+
+    var isPunctuationEnabled: Bool {
+        get {
+            if defaults.object(forKey: "isPunctuationEnabled") == nil {
+                return true // default on
+            }
+            return defaults.bool(forKey: "isPunctuationEnabled")
+        }
+        set { defaults.set(newValue, forKey: "isPunctuationEnabled") }
+    }
+
+    var customPunctuationModel: String? {
+        get {
+            let val = defaults.string(forKey: "customPunctuationModel")
+            return (val?.isEmpty ?? true) ? nil : val
+        }
+        set { defaults.set(newValue, forKey: "customPunctuationModel") }
+    }
+
     // MARK: - Audio Settings
 
     var silenceDuration: TimeInterval {

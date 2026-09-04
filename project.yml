@@ -9,6 +9,9 @@ packages:
   WhisperKit:
     url: https://github.com/argmaxinc/WhisperKit.git
     from: "0.9.0"
+  sherpa-onnx:
+    url: https://github.com/k2-fsa/sherpa-onnx.git
+    minorVersion: "1.13.7"
 
 targets:
   VibeTyping:
@@ -42,6 +45,8 @@ targets:
         INFOPLIST_FILE: VibeTyping/Resources/Info.plist
     dependencies:
       - package: WhisperKit
+      - package: sherpa-onnx
+        product: sherpa-onnx
     entitlements:
       path: VibeTyping/Resources/VibeTyping.entitlements
       properties:
