@@ -1,0 +1,49 @@
+{
+  "generated": "2026-09-04T08:00:03+00:00",
+  "mode": "update",
+  "depth": 2,
+  "source": "git",
+  "files": 16,
+  "modules": {
+    "VibeTyping/App": {
+      "hash": "685f90ffa44c0d94a3d2d181df489845c23b9a2966005abdda77b22024aaa69f",
+      "files": 3,
+      "doc": "modules/VibeTyping__App.md"
+    },
+    "VibeTyping/Audio": {
+      "hash": "9992694a40178e3118636d081729f3f43661de385c70189b1f4c55337e668c18",
+      "files": 2,
+      "doc": "modules/VibeTyping__Audio.md"
+    },
+    "VibeTyping/InputMethod": {
+      "hash": "8c544d72f794c7baeb142836d1f08474bd201d6cd4c810dcf9d8fff56fdf700e",
+      "files": 2,
+      "doc": "modules/VibeTyping__InputMethod.md"
+    },
+    "VibeTyping/LLM": {
+      "hash": "baef2559453191f6d09b4b186df944c19440f0c48edb96eb4b20df32803d87aa",
+      "files": 2,
+      "doc": "modules/VibeTyping__LLM.md"
+    },
+    "VibeTyping/Punctuation": {
+      "hash": "75a0105a3a2f56d160687dd53fe8082310f50bc145bfeff8a1012090bdadeef4",
+      "files": 2,
+      "doc": "modules/VibeTyping__Punctuation.md"
+    },
+    "VibeTyping/Settings": {
+      "hash": "4bdb21f77441360eb6031c5e90acf6791b8d8334638b902d0fdbec8def92bff7",
+      "files": 1,
+      "doc": "modules/VibeTyping__Settings.md"
+    },
+    "VibeTyping/Transcription": {
+      "hash": "253fb64d113664846737fa50609b80b25cfedd75fad8b01a4659eeda70a30302",
+      "files": 1,
+      "doc": "modules/VibeTyping__Transcription.md"
+    },
+    "VibeTyping/UI": {
+      "hash": "039bafd25894af7cec876234639598786fa818c6acbb186f94fc2877f522ca9e",
+      "files": 3,
+      "doc": "modules/VibeTyping__UI.md"
+    }
+  }
+}

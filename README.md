@@ -1,12 +1,13 @@
 # VibeTyping
 
-macOS 語音輸入法，使用 [WhisperKit](https://github.com/argmaxinc/WhisperKit) 搭配 [Breeze-ASR-25](https://github.com/mtkresearch/Breeze-ASR-25) CoreML 模型在本地端進行台灣中文語音辨識，並可選擇透過雲端 LLM 進一步校正同音錯字與標點符號。
+macOS 語音輸入法，使用 [WhisperKit](https://github.com/argmaxinc/WhisperKit) 搭配 [Breeze-ASR-25](https://github.com/mtkresearch/Breeze-ASR-25) CoreML 模型在本地端進行台灣中文語音辨識，再以 FunASR 的 CT-Transformer 模型補上標點，並可選擇透過雲端 LLM 進一步校正同音錯字。
 
 ## 功能特色
 
 - **本地語音辨識** — 使用 Apple Neural Engine 加速，無需上傳音訊到雲端
 - **台灣中文優化** — 採用 Breeze-ASR-25（基於 Whisper large-v2 微調）
-- **LLM 校正** — 支援任意 OpenAI 相容 API 端點，修正同音錯字、補標點
+- **本地標點還原** — Breeze-ASR-25 的輸出不含標點，以 FunASR 的 CT-Transformer 模型在本機補上，單句約 5 毫秒
+- **LLM 校正** — 支援任意 OpenAI 相容 API 端點，修正同音錯字
 - **自動停止** — 透過靜音偵測（VAD）自動判斷說話結束
 - **原生整合** — 基於 InputMethodKit，作為系統輸入法運作於所有應用程式
 - **自動下載模型** — 首次啟動時自動從 HuggingFace 下載模型，附進度條顯示
@@ -63,7 +64,7 @@ cp -R ~/Library/Developer/Xcode/DerivedData/VibeTyping-*/Build/Products/Release/
 辨識流程：
 
 ```
-🎤 錄音中 → 📝 辨識中（WhisperKit 本地辨識）→ ✨ 校正中（LLM）→ 文字輸出
+🎤 錄音中 → 📝 辨識中（WhisperKit 本地辨識）→ ✒️ 標點還原（本地）→ ✨ 校正中（LLM）→ 文字輸出
 ```
 
 ## 設定
@@ -77,6 +78,15 @@ cp -R ~/Library/Developer/Xcode/DerivedData/VibeTyping-*/Build/Products/Release/
 | 靜音偵測秒數 | 1.5 秒 | 說話停頓多久後自動停止錄音 |
 | 自訂模型資料夾 | （空） | 留空則自動下載到 `~/Library/Application Support/VibeTyping/HubCache/` |
 | 錄音快捷鍵 | `⌃/` (Ctrl+/) | 點擊按鈕後按下新的組合鍵即可變更 |
+
+### 標點還原
+
+| 設定項 | 預設值 | 說明 |
+|--------|--------|------|
+| 啟用標點還原 | 開啟 | 關閉則輸出不含標點的原始辨識結果 |
+| 自訂模型檔案 | （空） | 留空則首次啟用時自動下載到 `~/Library/Application Support/VibeTyping/Punctuation/model.int8.onnx`（約 65 MB） |
+
+模型為 [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) 打包的 `punct-ct-transformer-zh-en-vocab272727` int8 版本，可插入 `，。？、`，繁體中文與中英夾雜均直接支援，不需簡繁轉換。
 
 ### LLM 校正
 
@@ -95,6 +105,7 @@ VibeTyping/
 ├── InputMethod/         # IMKInputController 核心控制器
 ├── Audio/               # AVAudioEngine 錄音與靜音偵測
 ├── Transcription/       # WhisperKit 模型載入與轉錄
+├── Punctuation/         # CT-Transformer 標點還原與空格還原
 ├── LLM/                 # OpenAI 相容 API 客戶端與校正 Prompt
 ├── UI/                  # 浮動狀態面板與 SwiftUI 設定介面
 ├── Settings/            # UserDefaults 設定管理
@@ -107,6 +118,8 @@ VibeTyping/
 |------|------|
 | [WhisperKit](https://github.com/argmaxinc/WhisperKit) (SPM) | 本地語音辨識引擎 |
 | [Breeze-ASR-25_coreml](https://huggingface.co/aoiandroid/Breeze-ASR-25_coreml) | 台灣中文 ASR CoreML 模型 |
+| [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) (SPM) | ONNX 推論執行環境（標點模型） |
+| [punct-ct-transformer-zh-en](https://k2-fsa.github.io/sherpa/onnx/punctuation/pretrained_models.html) | [FunASR](https://github.com/modelscope/FunASR) 中英標點還原模型 |
 
 系統框架：InputMethodKit、AVFoundation、SwiftUI。
 

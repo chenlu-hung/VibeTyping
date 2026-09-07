@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DA876D57BDEE5F738125604A"
+               BlueprintIdentifier = "FAE1CFC4C424570BED20219A"
                BuildableName = "VibeTyping.app"
                BlueprintName = "VibeTyping"
                ReferencedContainer = "container:VibeTyping.xcodeproj">
@@ -42,7 +42,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA876D57BDEE5F738125604A"
+            BlueprintIdentifier = "FAE1CFC4C424570BED20219A"
             BuildableName = "VibeTyping.app"
             BlueprintName = "VibeTyping"
             ReferencedContainer = "container:VibeTyping.xcodeproj">
@@ -59,7 +59,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA876D57BDEE5F738125604A"
+            BlueprintIdentifier = "FAE1CFC4C424570BED20219A"
             BuildableName = "VibeTyping.app"
             BlueprintName = "VibeTyping"
             ReferencedContainer = "container:VibeTyping.xcodeproj">

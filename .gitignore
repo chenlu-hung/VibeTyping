@@ -28,9 +28,6 @@ Package.resolved
 *.swp
 *~
 
-# Generated
-generate_project.rb
-
 # IDE
 .vscode/
 .idea/
